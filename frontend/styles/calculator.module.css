@@ -1,0 +1,149 @@
+.calculator {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 100%;
+  max-width: 320px;
+  min-width: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.display {
+  background: #2d3436;
+  color: #ffd700;
+  font-size: clamp(1.5em, 6vw, 2.5em);
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: right;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  word-break: break-all;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.buttons button {
+  padding: 16px 10px;
+  font-size: clamp(0.9em, 4vw, 1.2em);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+  background: #ecf0f1;
+  color: #2d3436;
+  min-height: 48px;
+}
+
+.buttons button:hover {
+  background: #bdc3c7;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.buttons button:active {
+  transform: translateY(0);
+}
+
+.btnOperator {
+  background: #667eea;
+  color: white;
+  font-size: 1.4em;
+}
+
+.btnOperator:hover {
+  background: #5568d3;
+}
+
+.btnFunction {
+  background: #e74c3c;
+  color: white;
+}
+
+.btnFunction:hover {
+  background: #c0392b;
+}
+
+.btnEquals {
+  background: #27ae60;
+  color: white;
+  font-size: 1.4em;
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.btnEquals:hover {
+  background: #229954;
+}
+
+.btnZero {
+  grid-column: span 2;
+}
+
+.error {
+  background: #e74c3c;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  word-wrap: break-word;
+}
+
+.loading {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #667eea;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .buttons {
+    gap: 7px;
+  }
+
+  .buttons button {
+    padding: 14px 8px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .buttons button {
+    padding: 10px 6px;
+    min-height: 38px;
+  }
+
+  .display {
+    padding: 10px 14px;
+    min-height: 50px;
+  }
+}
