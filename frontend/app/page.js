@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import ScientificCalculator from '@/components/ScientificCalculator';
 import CalculatorUI from '@/components/CalculatorUI';
+import StarField from '@/components/StarField';
 import styles from '@/styles/page.module.css';
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <StarField />
       <div className={styles.container}>
         <h1>Calculator</h1>
         <div className={styles.modeToggle}>

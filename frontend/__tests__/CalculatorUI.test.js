@@ -10,13 +10,12 @@ describe('CalculatorUI Component', () => {
     fetch.mockClear();
   });
 
-  const getDisplay = () => screen.getByRole('main')?.querySelector('[class*="display"]') ||
-    document.querySelector('[class*="display"]');
+  const getDisplay = () => screen.getByTestId('display');
 
   describe('Rendering', () => {
     it('should render calculator with initial display of 0', () => {
       render(<CalculatorUI />);
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('0');
     });
 
@@ -51,7 +50,7 @@ describe('CalculatorUI Component', () => {
     it('should display clicked numbers', () => {
       render(<CalculatorUI />);
       fireEvent.click(screen.getByRole('button', { name: '5' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('5');
     });
 
@@ -60,7 +59,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '1' }));
       fireEvent.click(screen.getByRole('button', { name: '2' }));
       fireEvent.click(screen.getByRole('button', { name: '3' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('123');
     });
 
@@ -69,7 +68,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '5' }));
       fireEvent.click(screen.getByRole('button', { name: '.' }));
       fireEvent.click(screen.getByRole('button', { name: '5' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('5.5');
     });
 
@@ -78,7 +77,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '5' }));
       fireEvent.click(screen.getByRole('button', { name: '.' }));
       fireEvent.click(screen.getByRole('button', { name: '.' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('5.');
     });
 
@@ -86,7 +85,7 @@ describe('CalculatorUI Component', () => {
       render(<CalculatorUI />);
       fireEvent.click(screen.getByRole('button', { name: '5' }));
       fireEvent.click(screen.getByRole('button', { name: '+' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('5');
     });
 
@@ -95,7 +94,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '5' }));
       fireEvent.click(screen.getByRole('button', { name: '+' }));
       fireEvent.click(screen.getByRole('button', { name: '3' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('3');
     });
   });
@@ -106,7 +105,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '5' }));
       fireEvent.click(screen.getByRole('button', { name: '3' }));
       fireEvent.click(screen.getByRole('button', { name: 'AC' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('0');
     });
 
@@ -116,7 +115,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '2' }));
       fireEvent.click(screen.getByRole('button', { name: '3' }));
       fireEvent.click(screen.getByRole('button', { name: '←' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('12');
     });
 
@@ -124,7 +123,7 @@ describe('CalculatorUI Component', () => {
       render(<CalculatorUI />);
       fireEvent.click(screen.getByRole('button', { name: '5' }));
       fireEvent.click(screen.getByRole('button', { name: '←' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('0');
     });
   });
@@ -167,7 +166,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '=' }));
 
       await waitFor(() => {
-        const display = document.querySelector('[class*="display"]');
+        const display = getDisplay();
         expect(display).toHaveTextContent('10');
       });
     });
@@ -271,7 +270,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '5' }));
       fireEvent.click(screen.getByRole('button', { name: '+' }));
       fireEvent.click(screen.getByRole('button', { name: '.' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('0.');
     });
 
@@ -281,7 +280,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '+' }));
       fireEvent.click(screen.getByRole('button', { name: '.' }));
       fireEvent.click(screen.getByRole('button', { name: '5' }));
-      const display = document.querySelector('[class*="display"]');
+      const display = getDisplay();
       expect(display).toHaveTextContent('0.5');
     });
   });
@@ -320,7 +319,7 @@ describe('CalculatorUI Component', () => {
       fireEvent.click(screen.getByRole('button', { name: '=' }));
 
       await waitFor(() => {
-        const display = document.querySelector('[class*="display"]');
+        const display = getDisplay();
         expect(display).toHaveTextContent('0');
       });
     });

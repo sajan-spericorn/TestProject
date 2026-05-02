@@ -117,7 +117,7 @@ export default function CalculatorUI() {
     <div className={styles.calculator}>
       {error && <div className={styles.error}>{error}</div>}
 
-      <div className={styles.display}>
+      <div className={styles.display} data-testid="display">
         {display}
       </div>
 

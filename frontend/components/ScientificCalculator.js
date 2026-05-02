@@ -196,7 +196,7 @@ export default function ScientificCalculator() {
         </button>
       </div>
 
-      <div className={styles.display}>{display}</div>
+      <div className={styles.display} data-testid="display">{display}</div>
 
       <div className={styles.grid}>
         {/* Row 1 */}

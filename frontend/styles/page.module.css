@@ -3,9 +3,11 @@
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent;
   padding: 20px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -13,6 +15,8 @@
   width: 100%;
   max-width: 540px;
   min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .container h1 {

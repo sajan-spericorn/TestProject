@@ -4,7 +4,7 @@ import ScientificCalculator from '@/components/ScientificCalculator';
 
 global.fetch = jest.fn();
 
-const getDisplay = () => document.querySelector('[class*="display"]');
+const getDisplay = () => screen.getByTestId('display');
 
 describe('ScientificCalculator Component', () => {
   beforeEach(() => {
